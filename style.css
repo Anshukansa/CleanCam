@@ -1,0 +1,176 @@
+/* style.css */
+
+/* Basic styling for the page */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", Helvetica, Arial, sans-serif;
+    text-align: center;
+    background-color: #f0f0f0; /* Light grey background */
+}
+
+/* Styling for buttons */
+button {
+    text-decoration: none;
+    color: #1263dd;
+    background: #fff;
+    margin: 5px;
+    font-weight: 500;
+    border: 2px solid #ddd; /* Light grey border */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease; 
+    padding: 10px;
+}
+
+/* Styling for links */
+a {
+    text-decoration: none;
+    color: #1263dd;
+}
+
+button:hover {
+    color: #fff;
+    background: #1263dd;
+}
+
+.button-group a:hover {
+    color: #fff;
+}
+
+/* Disabled button style */
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.hide {
+    display: none;
+}
+
+/* Styling for the camera container */
+.camera-container {
+    display: none;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center;
+    margin-top: 20px;
+    border: 2px solid #ddd; /* Light grey border */
+    padding: 10px;
+    width: 520px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff; /* White background */
+    position: relative;
+}
+
+
+/* Styling for video and canvas */
+.camera-video,
+    .camera-canvas {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    .controls-gallery {
+        display: grid;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        width: 520px;
+        margin: 20px auto;
+        background-color: #fff;
+        position: relative;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+/* Styling for session controls */
+
+.controls {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 520px;
+    margin: 20px auto;
+    background-color: #fff;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+
+.controls-non-active {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.controls-non-active .button-group,
+.controls-non-active .button-group a {
+    color: #1263dd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+}
+
+
+.controls .button-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+}
+/* Styling for the photo gallery container */
+/* Styling for the photo gallery container */
+.photo-grid {
+    display: none;
+    padding: 20px;
+    width: 520px;
+    margin: 20px auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    grid-template-columns: repeat(2, minmax(200px, 333px));
+    gap: 30px;
+    margin-top: 20px;
+    padding: 20px 20px;
+}
+
+/* Styling for individual photo items */
+img.photo-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+img.photo-thumbnail:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+/* Optional: Add some responsiveness */
+@media (max-width: 768px) {
+.photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 250px));
+    }
+}
+
+@media (max-width: 480px) {
+.photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 166px));
+    }
+}
