@@ -7,6 +7,7 @@ body {
     font-family: "Poppins", Helvetica, Arial, sans-serif;
     text-align: center;
     background-color: #f0f0f0; /* Light grey background */
+    font-size: 18px; /* Increase base font size for better readability */
 }
 
 /* Styling for buttons */
@@ -20,14 +21,15 @@ button {
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    padding: 15px;
-    font-size: 18px;
+    padding: 20px;
+    font-size: 20px; /* Larger font size for buttons */
 }
 
 /* Styling for links */
 a {
     text-decoration: none;
     color: #1263dd;
+    font-size: 18px; /* Larger font size for links */
 }
 
 button:hover {
@@ -58,7 +60,7 @@ button:disabled {
     margin-top: 20px;
     border: 2px solid #ddd; /* Light grey border */
     padding: 20px;
-    width: 90%;
+    width: 95%;
     max-width: 520px;
     margin: 0 auto;
     border-radius: 10px;
@@ -80,7 +82,7 @@ button:disabled {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    width: 90%;
+    width: 95%;
     max-width: 520px;
     margin: 20px auto;
     background-color: #fff;
@@ -96,7 +98,7 @@ button:disabled {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    width: 90%;
+    width: 95%;
     max-width: 520px;
     margin: 20px auto;
     background-color: #fff;
@@ -118,21 +120,21 @@ button:disabled {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 15px; /* Space between buttons */
+    gap: 20px; /* Increased space between buttons */
 }
 
 .controls .button-group {
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 15px; /* Space between buttons */
+    gap: 20px; /* Increased space between buttons */
 }
 
 /* Styling for the photo gallery container */
 .photo-grid {
     display: none;
     padding: 20px;
-    width: 90%;
+    width: 95%;
     max-width: 520px;
     margin: 20px auto;
     flex-direction: column;
@@ -165,33 +167,13 @@ img.photo-thumbnail:hover {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    button {
-        padding: 12px;
-        font-size: 16px;
-    }
-    
-    .controls-gallery, 
-    .controls, 
-    .camera-container, 
-    .photo-grid {
-        width: 95%;
-        padding: 15px;
-    }
-    
-    .photo-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    }
-}
-
-@media (max-width: 480px) {
     body {
-        font-size: 18px; /* Increase font size for readability */
+        font-size: 20px; /* Further increase font size for better readability */
     }
-    
+
     button {
-        padding: 10px;
-        font-size: 14px;
-        margin: 8px;
+        padding: 18px;
+        font-size: 22px; /* Larger font size for buttons */
     }
     
     .controls-gallery, 
@@ -199,10 +181,34 @@ img.photo-thumbnail:hover {
     .camera-container, 
     .photo-grid {
         width: 100%;
-        padding: 10px;
+        padding: 20px;
     }
     
     .photo-grid {
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 22px; /* Significantly increase font size for readability */
+    }
+
+    button {
+        padding: 16px;
+        font-size: 24px; /* Significantly larger font size for buttons */
+        margin: 12px;
+    }
+
+    .controls-gallery, 
+    .controls, 
+    .camera-container, 
+    .photo-grid {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     }
 }
