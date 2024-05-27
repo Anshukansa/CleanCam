@@ -21,6 +21,7 @@ button {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease; 
     padding: 10px;
+    font-size: 16px;
 }
 
 /* Styling for links */
@@ -57,7 +58,8 @@ button:disabled {
     margin-top: 20px;
     border: 2px solid #ddd; /* Light grey border */
     padding: 10px;
-    width: 520px;
+    width: 90%;
+    max-width: 520px;
     margin: 0 auto;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -65,48 +67,140 @@ button:disabled {
     position: relative;
 }
 
-
 /* Styling for video and canvas */
 .camera-video,
-    .camera-canvas {
-        width: 100%;
-        height: 100%;
-    }
+.camera-canvas {
+    width: 100%;
+    height: 100%;
+}
 
-
-    .controls-gallery {
-        display: grid;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        width: 520px;
-        margin: 20px auto;
-        background-color: #fff;
-        position: relative;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
+.controls-gallery {
+    display: grid;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    width: 90%;
+    max-width: 520px;
+    margin: 20px auto;
+    background-color: #fff;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
 
 /* Styling for session controls */
-
 .controls {
     display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 10px;
-    width: 520px;
+    width: 90%;
+    max-width: 520px;
     margin: 20px auto;
     background-color: #fff;
     position: relative;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  }
+}
 
 .controls-non-active {
     position: absolute;
     top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.controls-non-active .button-group,
+.controls-non-active .button-group a {
+    color: #1263dd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+}
+
+.controls .button-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px; /* Space between buttons */
+}
+
+/* Styling for the photo gallery container */
+.photo-grid {
+    display: none;
+    padding: 20px;
+    width: 90%;
+    max-width: 520px;
+    margin: 20px auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+    padding: 20px 20px;
+}
+
+/* Styling for individual photo items */
+img.photo-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+img.photo-thumbnail:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    button {
+        padding: 8px;
+        font-size: 14px;
+    }
+    
+    .controls-gallery, 
+    .controls, 
+    .camera-container, 
+    .photo-grid {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        padding: 6px;
+        font-size: 12px;
+    }
+    
+    .controls-gallery, 
+    .controls, 
+    .camera-container, 
+    .photo-grid {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    .photo-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+}
     left: 50%;
     transform: translate(-50%, -50%);
 }
