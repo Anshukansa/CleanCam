@@ -22,6 +22,8 @@ const sessionPhotoGallery = document.getElementById("session-photo-gallery");
 const allPhotoGallery = document.getElementById("all-photo-gallery");
 const errorMessage = document.getElementById("error-message");
 let switchCameraButton = document.getElementById('switchCamera');
+let toggleFlashButton = document.getElementById('toggleFlash');
+let flashEnabled = false;
 
 // Function to clear error messages
 function clearError() {
@@ -257,6 +259,7 @@ async function capturePhoto() {
     }
 }
 
+//switch camera
 // Get the list of available cameras
 navigator.mediaDevices.enumerateDevices()
     .then(devices => {
@@ -286,6 +289,20 @@ function switchCamera() {
                     });
             }
         });
+}
+
+//flashlight 
+toggleFlashButton.addEventListener('click', toggleFlash);
+
+function toggleFlash() {
+    flashEnabled = !flashEnabled;
+    if (flashEnabled) {
+        video.srcObject.getVideoTracks()[0].applyConstraints({ advanced: [{ torch: true }] });
+        toggleFlashButton.textContent = 'Turn off flashlight';
+    } else {
+        video.srcObject.getVideoTracks()[0].applyConstraints({ advanced: [{ torch: false }] });
+        toggleFlashButton.textContent = 'Turn on flashlight';
+    }
 }
 
 // Function to end the session and move session photos to all photos store
