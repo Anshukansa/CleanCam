@@ -12,20 +12,17 @@
   <!-- Error message display area -->
   <div id="error-message"></div>
 
-
     <!-- Video and Canvas for photo capture -->
     <div class="camera-container">
         <video id="video" autoplay class="camera-video"></video> <!-- Camera stream -->
         <canvas id="canvas" class="camera-canvas" style="display: none;"></canvas> <!-- For drawing photos -->
-        <button id="capturePhoto" class="hide" title="Capture a photo" disabled>
-            <i class="fas fa-camera"></i> Capture Photo
-        </button>
+        <button id="capturePhoto" class="hide" title="Capture a photo" disabled><i class="fa-solid fa-camera"></i></button>
+        <button id="switchCamera" title="Switch camera"> <i class="fa-solid fa-camera-rotate"></i></button>
     </div>
 
     <!-- Buttons for session management and photo capturing -->
-    <div id="controls" class ="controls">
+    <div id="controls" class="controls">
         <div class="button-group">
-            
             <button id="endSession" class="hide" title="End the photo session" disabled>
                 <i class="fas fa-stop"></i> End Session
             </button>
@@ -38,7 +35,7 @@
         </div>
     </div>
 
-    <div id="controls-non-active" class ="controls-non-active">
+    <div id="controls-non-active" class="controls-non-active">
         <h1>CleanCam</h1>
         <h3>Camera For Cleaners</h3>
         <div class="button-group">
@@ -46,18 +43,14 @@
                 <i class="fas fa-play"></i> Start Session
             </button>
             <button id="navigateToOtherPage" title="Navigate to other page">
-                <a href="sessionGallery.html">  <i class="fas fa-image"></i>Last Session Photos</a>
+                <a href="sessionGallery.html">  <i class="fas fa-image"></i> Last Session Photos</a>
             </button>
         </div>
     </div>
 
-    
-
     <!-- Photo gallery to display captured photos -->
-    
     <div id="session-photo-gallery" class="photo-grid"></div>
-    
-  
+
     <!-- Link to the updated JavaScript file -->
     <script src="app.js"></script>
 </body>

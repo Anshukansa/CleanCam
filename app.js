@@ -1,3 +1,4 @@
+
 // Variables for session management and camera stream
 let sessionActive = false;
 let cameraStream = null;
@@ -20,6 +21,7 @@ const context = canvasElement.getContext("2d");
 const sessionPhotoGallery = document.getElementById("session-photo-gallery");
 const allPhotoGallery = document.getElementById("all-photo-gallery");
 const errorMessage = document.getElementById("error-message");
+let switchCameraButton = document.getElementById('switchCamera');
 
 // Function to clear error messages
 function clearError() {
@@ -253,6 +255,37 @@ async function capturePhoto() {
     } catch (error) {
         showError("Error capturing photo: " + error.message);
     }
+}
+
+// Get the list of available cameras
+navigator.mediaDevices.enumerateDevices()
+    .then(devices => {
+        let cameras = devices.filter(device => device.kind === 'videoinput');
+        if (cameras.length > 1) {
+            switchCameraButton.disabled = false;
+            switchCameraButton.addEventListener('click', switchCamera);
+        }
+    });
+
+function switchCamera() {
+    // Get the current camera
+    let currentCamera = video.srcObject.getVideoTracks()[0];
+
+    // Get the list of available cameras
+    navigator.mediaDevices.enumerateDevices()
+        .then(devices => {
+            let cameras = devices.filter(device => device.kind === 'videoinput');
+            let backCamera = cameras.find(device => device.label.toLowerCase().includes('back'));
+
+            // Switch to the back camera
+            if (backCamera) {
+                video.srcObject.getVideoTracks()[0].stop();
+                navigator.mediaDevices.getUserMedia({ video: { deviceId: backCamera.deviceId } })
+                    .then(stream => {
+                        video.srcObject = stream;
+                    });
+            }
+        });
 }
 
 // Function to end the session and move session photos to all photos store
